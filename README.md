@@ -2,7 +2,7 @@
 
 Default mappings:
 
-- \<leader>sp. - toggle playing/pause
+- \<leader>sp. - toggle play/pause
 - \<leader>sp> - next track
 - \<leader>sp< - previous track
 - \<leader>sp_ - pause
