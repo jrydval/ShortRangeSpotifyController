@@ -1,4 +1,4 @@
-# Spotify controller for locally installed Spotify client
+# VIM Spotify controller for locally installed Spotify client
 
 Default mappings:
 
