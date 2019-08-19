@@ -3,16 +3,16 @@ function! spotify#Spotify(command)
 
 	if a:command ==# 'next'
 		let cmd = 'osascript -e ''tell application "Spotify" to next track'''
-		echomsg system(cmd)
+		echo system(cmd)
 	elseif a:command ==# 'prev'
 		let cmd = 'osascript -e ''tell application "Spotify" to previous track'''
-		echomsg system(cmd)
+		echo system(cmd)
 	elseif a:command ==# 'play'
 		let cmd = 'osascript -e ''tell application "Spotify" to play'''
-		echomsg system(cmd)
+		echo system(cmd)
 	elseif a:command ==# 'pause'
 		let cmd = 'osascript -e ''tell application "Spotify" to pause'''
-		echomsg system(cmd)
+		echo system(cmd)
 	elseif a:command ==# 'toggle'
 		if s:SpotifyStatus() ==# 'playing'
 			call spotify#Spotify('pause')
@@ -21,9 +21,14 @@ function! spotify#Spotify(command)
 		endif
 	elseif a:command ==# 'what'
 		let cmd = 'osascript -e ''tell application "Spotify" to (get name of current track) & " by " & (get artist of current track)'''
-		echomsg system(cmd)[:-2]
+		let name = system(cmd)[:-2]
+		if strlen(name) == 4
+			echo 'Not playing here'
+		else
+			echo name
+		endif
 	else
-		echomsg 'Unknown command'
+		echo 'Unknown command'
 	endif
 	
 endfunction
